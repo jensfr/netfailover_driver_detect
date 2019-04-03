@@ -21,7 +21,10 @@ Clone this repository. Run 'make'.
 
 ### Run
 From source system run ./send_packet -d <dev> 
+  
 On target system. First try sniffing on pf device with ./is_legacy -d <pf-dev>. If is_legacy returns 0 it means it has received the packets
-sent by send_packet. If it returns 1 it didn't receive the packet. Now run ./is_legacy  -d <vf-dev>. If the packet is received on the vf device
+sent by send_packet. If it returns 1 it didn't receive the packet. Now run ./is_legacy  -d <vf-dev>. 
+  
+If the packet is received on the vf device
 it means that the driver is behaving in above described way, setting up the MAC filter too early, directing packets to the vf before
 guest is up and ready to receive packets. 
